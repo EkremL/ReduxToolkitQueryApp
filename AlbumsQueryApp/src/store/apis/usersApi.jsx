@@ -1,11 +1,21 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
+const pause = (duration) => {
+  return new Promise((resolve) => {
+    setTimeout(resolve, duration);
+  });
+};
+
 const usersApi = createApi({
   //reducerpath: index.jsx de nasıl ulaşacağımız
   reducerPath: "users",
   //basequery: nereye istek atıcaz  fetchbasequery ile de çekiceğimiz değeri yazıcaz
   baseQuery: fetchBaseQuery({
     baseUrl: "http://localhost:3000",
+    fetchFn: async (...args) => {
+      await pause(1000);
+      return fetch(...args);
+    },
   }),
   //veri çekme ekleme silme gibi islemler endpoints de tutulur ve builder argümanı alır
   endpoints(builder) {
