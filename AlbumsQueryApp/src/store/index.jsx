@@ -22,13 +22,13 @@ export const store = configureStore({
 setupListeners(store.dispatch);
 
 export {
-  useFetchAlbumsQuery,
-  useAddAlbumMutation,
-  useRemoveAlbumMutation,
-} from "./apis/albumsApi";
-
-export {
   useFetchUsersQuery,
   useAddUserMutation,
   useRemoveUserMutation,
 } from "./apis/usersApi";
+
+export {
+  useFetchAlbumsQuery,
+  useAddAlbumMutation,
+  useRemoveAlbumMutation,
+} from "./apis/albumsApi";
