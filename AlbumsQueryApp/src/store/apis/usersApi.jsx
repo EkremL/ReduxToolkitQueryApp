@@ -1,4 +1,5 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
+import { faker } from "@faker-js/faker";
 
 const pause = (duration) => {
   return new Promise((resolve) => {
@@ -23,6 +24,8 @@ const usersApi = createApi({
       //çekme için query, update,silme veya ekleme için mutation kullanilir
       //kişileri çekme
       fetchUsers: builder.query({
+        //kişi ekledikten sonra da fetch ederek sayfada anında gözükmesini sağlamak için tag kullanıyoruz
+        providesTags: ["User"],
         query: () => {
           return {
             // "http://localhost:3000" ın devamındaki userse istek atıcaz yani json serverdeki path
@@ -34,6 +37,10 @@ const usersApi = createApi({
       }),
       //kişi ekleme
       addUser: builder.mutation({
+        invalidatesTags: () => {
+          //eleman eklendikten sonra serverdeki yeni elemanla birlikte çekme işlemi yapmak için önceki tagı invalidatesTags ile iptal etmiş olduk ve verilerin tamamı artık çekilip ekranda gözükecek aynı işlemi kişi silme için de kullanmamız gerek
+          return [{ type: "User" }];
+        },
         query: () => {
           return {
             url: "/users",
@@ -41,13 +48,18 @@ const usersApi = createApi({
             method: "POST",
             body: {
               //ilerde random isim olusturma ypcaz suanlik elle isim ekliyoruz, idyi otomatik jsonserver ekliyor
-              name: "Ahmet",
+              //   name: "Ahmet",
+              //Artik faker ile random isim ekliyoruz
+              name: faker.name.fullName(),
             },
           };
         },
       }),
       //kişi silme
       removeUser: builder.mutation({
+        invalidatesTags: () => {
+          return [{ type: "User" }];
+        },
         //kimi silceksek parametre vermeliyiz yani id belirtmeliyiz
         query: (user) => {
           return {

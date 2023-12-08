@@ -1,6 +1,21 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: grey;
+}
+
 .topArrangement {
   display: flex;
   justify-content: space-between;
   margin: 20px;
   align-items: center;
+}
+
+.panelDiv {
+  background-color: lightgrey;
+  border-radius: 30px;
 }

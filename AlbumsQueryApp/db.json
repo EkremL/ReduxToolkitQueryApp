@@ -1,12 +1,31 @@
 {
   "users": [
     {
-      "id": 1,
-      "name": "Ekrem"
+      "name": "Alexis Grady",
+      "id": 1
     },
     {
-      "id": 2,
-      "name": "Hasan"
+      "name": "Lance Howell",
+      "id": 2
+    },
+    {
+      "name": "Larry Jakubowski",
+      "id": 3
+    },
+    {
+      "name": "Willis Yundt",
+      "id": 4
+    },
+    {
+      "name": "Sally Blick",
+      "id": 5
+    }
+  ],
+  "albums": [
+    {
+      "userId": 1,
+      "title": "Eskisehir",
+      "id": 1
     }
   ]
 }
