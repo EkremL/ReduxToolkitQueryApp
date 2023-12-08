@@ -24,8 +24,23 @@
   "albums": [
     {
       "userId": 1,
-      "title": "Eskisehir",
-      "id": 1
+      "title": "Unbranded Concrete Towels",
+      "id": 7
+    },
+    {
+      "userId": 1,
+      "title": "Bespoke Frozen Fish",
+      "id": 8
+    },
+    {
+      "userId": 1,
+      "title": "Awesome Frozen Sausages",
+      "id": 9
+    },
+    {
+      "userId": 1,
+      "title": "Intelligent Steel Pants",
+      "id": 10
     }
   ]
 }
