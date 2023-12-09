@@ -35,7 +35,7 @@ function AlbumList({ user }) {
     <>
       <div>
         <div className="topArrangement">
-          <h3 style={{ color: "#9c27b0" }}>{user.name}</h3>
+          <h3 style={{ color: "#9c27b0" }}>{user.name} Albümü</h3>
           <Button variant="contained" color="success" onClick={handleAlbumAdd}>
             {results.isLoading ? (
               <CircularProgress />
